@@ -87,7 +87,6 @@ export default function Home() {
   return (
     <main className="overflow-hidden bg-white text-zinc-950 transition-colors duration-300 dark:bg-zinc-950 dark:text-zinc-50">
       <section className="hero dark" id="top">
-        <TechSolutionsHeroVisual className="hero-background-visual" />
         <header className="relative z-10 mx-auto flex h-16 max-w-6xl items-center justify-between border-b border-zinc-200 px-6 dark:border-zinc-800 lg:px-8">
           <a href="#top" aria-label="Sunda home"><Wordmark /></a>
           <nav className="hidden items-center gap-7 text-sm text-zinc-500 dark:text-zinc-400 md:flex" aria-label="Primary navigation">
@@ -125,6 +124,7 @@ export default function Home() {
               </a>
             </div>
           </div>
+          <TechSolutionsHeroVisual />
         </div>
 
         <div className="relative z-10 mx-auto grid max-w-6xl border-x border-t border-zinc-200 bg-white/90 dark:border-zinc-800 dark:bg-zinc-900/90 sm:grid-cols-2 lg:grid-cols-4">
