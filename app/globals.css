@@ -418,10 +418,10 @@ section { scroll-margin-top: 20px; }
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 158%;
+  width: min(112%, 2000px);
   max-width: none;
-  height: 158%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   object-position: center;
   transform: translate(-50%, -50%) rotate(45deg);
   pointer-events: none;
@@ -460,8 +460,8 @@ section { scroll-margin-top: 20px; }
 @media (max-width: 640px) {
   .hero-background-visual { min-height: 0; }
   .hero-ribbon-image {
-    width: 172%;
-    height: 172%;
+    width: 140%;
+    height: auto;
   }
   .hero-ribbon-blend {
     background:
