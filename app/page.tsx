@@ -1,4 +1,5 @@
 import { CardDecorator, FeatureCard, Features } from "@/components/ui/features-10";
+import { TechSolutionsHeroVisual } from "@/components/ui/tech-solutions-hero-section";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import {
   ArrowDown,
@@ -73,36 +74,6 @@ function Wordmark() {
   );
 }
 
-function HeroWorkspace() {
-  return (
-    <div className="hero-workspace" aria-label="Illustration of an opportunity mapping workspace">
-      <CardDecorator />
-      <div className="workspace-head">
-        <span><i /> Opportunity map</span>
-        <span>SEA / ACTIVE</span>
-      </div>
-      <div className="workspace-canvas" aria-hidden="true">
-        <div className="canvas-grid" />
-        <span className="canvas-path path-one" />
-        <span className="canvas-path path-two" />
-        <i className="canvas-node canvas-node-a" />
-        <i className="canvas-node canvas-node-b" />
-        <i className="canvas-node canvas-node-c" />
-        <div className="insight-card">
-          <span>REPEATED SIGNAL</span>
-          <strong>Manual exception handling</strong>
-          <small>4 workflows connected</small>
-        </div>
-      </div>
-      <div className="workspace-foot">
-        <span>Discover</span><i />
-        <span>Shape</span><i />
-        <span>Prove</span>
-      </div>
-    </div>
-  );
-}
-
 function SectionLabel({ number, children }: { number: string; children: React.ReactNode }) {
   return (
     <p className="flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400">
@@ -153,7 +124,7 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <HeroWorkspace />
+          <TechSolutionsHeroVisual />
         </div>
 
         <div className="relative z-10 mx-auto grid max-w-6xl border-x border-t border-zinc-200 bg-white/90 dark:border-zinc-800 dark:bg-zinc-900/90 sm:grid-cols-2 lg:grid-cols-4">
