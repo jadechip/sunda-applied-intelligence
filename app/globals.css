@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: 0 0% 100%;
@@ -10,6 +11,17 @@
   --muted: 240 5% 96%;
   --muted-foreground: 240 4% 46%;
   --border: 240 6% 90%;
+}
+
+.dark {
+  color-scheme: dark;
+  --background: 240 10% 4%;
+  --foreground: 0 0% 98%;
+  --card: 240 6% 10%;
+  --card-foreground: 0 0% 98%;
+  --muted: 240 5% 14%;
+  --muted-foreground: 240 5% 65%;
+  --border: 240 4% 22%;
 }
 
 @theme inline {
@@ -57,6 +69,14 @@ section { scroll-margin-top: 20px; }
   background-size: auto, 32px 32px, 32px 32px;
   mask-image: linear-gradient(to bottom, black 0 80%, transparent 99%);
 }
+.dark .hero { background: #09090b; }
+.dark .hero::before {
+  background:
+    radial-gradient(56% 52% at 74% 42%, rgba(37, 99, 235, .18), transparent 72%),
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: auto, 32px 32px, 32px 32px;
+}
 
 .hero-workspace {
   position: relative;
@@ -99,6 +119,20 @@ section { scroll-margin-top: 20px; }
 .insight-card small { color: #a1a1aa; font-size: 10px; }
 .workspace-foot { height: 55px; display: flex; align-items: center; justify-content: center; gap: 14px; border-top: 1px dashed #d4d4d8; color: #71717a; font-size: 11px; }
 .workspace-foot i { width: 28px; height: 1px; background: #d4d4d8; }
+
+.dark .hero-workspace { border-color: #3f3f46; background: rgba(24,24,27,.92); box-shadow: 0 26px 70px rgba(0,0,0,.34); }
+.dark .workspace-head { border-color: #3f3f46; color: #71717a; }
+.dark .workspace-head span:first-child { color: #d4d4d8; }
+.dark .canvas-grid { background-image: radial-gradient(circle, #3f3f46 1px, transparent 1px); }
+.dark .canvas-path { border-color: #52525b; }
+.dark .path-two { border-color: rgba(37,99,235,.48); }
+.dark .canvas-node { background: #18181b; }
+.dark .canvas-node-c { border-color: #a1a1aa; }
+.dark .insight-card { border-color: #52525b; background: rgba(9,9,11,.96); box-shadow: 0 16px 36px rgba(0,0,0,.38); }
+.dark .insight-card strong { color: #f4f4f5; }
+.dark .insight-card small { color: #71717a; }
+.dark .workspace-foot { border-color: #3f3f46; color: #a1a1aa; }
+.dark .workspace-foot i { background: #52525b; }
 
 .region-panel { isolation: isolate; }
 .region-grid {

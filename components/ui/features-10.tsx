@@ -58,7 +58,7 @@ interface FeatureCardProps {
 }
 
 export const FeatureCard = ({ children, className }: FeatureCardProps) => (
-  <Card className={cn("group relative overflow-hidden rounded-none border-zinc-200 shadow-zinc-950/5", className)}>
+  <Card className={cn("group relative overflow-hidden rounded-none border-zinc-200 shadow-zinc-950/5 dark:border-zinc-800 dark:bg-zinc-900/70 dark:text-zinc-100", className)}>
     <CardDecorator />
     {children}
   </Card>
@@ -90,17 +90,17 @@ const CardHeading = ({ icon: Icon, title, description }: CardHeadingProps) => (
 );
 
 const WorkflowPreview = () => (
-  <div className="relative z-10 mx-auto aspect-[76/48] max-w-md border border-zinc-200 bg-white p-3 shadow-sm">
-    <div className="mb-3 flex items-center justify-between border-b border-dashed border-zinc-200 pb-2">
+  <div className="relative z-10 mx-auto aspect-[76/48] max-w-md border border-zinc-200 bg-white p-3 shadow-sm dark:border-zinc-700 dark:bg-zinc-950">
+    <div className="mb-3 flex items-center justify-between border-b border-dashed border-zinc-200 pb-2 dark:border-zinc-700">
       <span className="text-[9px] font-medium uppercase tracking-[0.14em] text-zinc-400">Workflow trace</span>
       <span className="flex items-center gap-1.5 text-[9px] text-zinc-500"><i className="size-1.5 rounded-full bg-blue-600" /> Live</span>
     </div>
     <div className="space-y-2">
       {["Customer request", "Operator review", "Manual exception"].map((label, index) => (
         <div className="grid grid-cols-[20px_1fr_auto] items-center gap-2" key={label}>
-          <span className={cn("grid size-5 place-items-center rounded-full border text-[8px]", index === 2 ? "border-blue-600 bg-blue-50 text-blue-700" : "border-zinc-200 text-zinc-400")}>{index + 1}</span>
-          <span className="text-[10px] text-zinc-600">{label}</span>
-          <span className={cn("h-1.5 rounded-full", index === 2 ? "w-16 bg-blue-600" : "w-10 bg-zinc-200")} />
+          <span className={cn("grid size-5 place-items-center rounded-full border text-[8px]", index === 2 ? "border-blue-600 bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300" : "border-zinc-200 text-zinc-400 dark:border-zinc-700 dark:text-zinc-500")}>{index + 1}</span>
+          <span className="text-[10px] text-zinc-600 dark:text-zinc-300">{label}</span>
+          <span className={cn("h-1.5 rounded-full", index === 2 ? "w-16 bg-blue-600" : "w-10 bg-zinc-200 dark:bg-zinc-700")} />
         </div>
       ))}
     </div>
@@ -108,7 +108,7 @@ const WorkflowPreview = () => (
 );
 
 const ConstraintPreview = () => (
-  <div className="relative z-10 mx-auto aspect-[76/48] max-w-md border border-zinc-200 bg-white p-4 shadow-sm">
+  <div className="relative z-10 mx-auto aspect-[76/48] max-w-md border border-zinc-200 bg-white p-4 shadow-sm dark:border-zinc-700 dark:bg-zinc-950">
     <div className="mb-4 flex items-center justify-between">
       <span className="text-[9px] font-medium uppercase tracking-[0.14em] text-zinc-400">Constraint map</span>
       <span className="text-[9px] text-blue-600">Highest leverage</span>
@@ -116,7 +116,7 @@ const ConstraintPreview = () => (
     <div className="grid grid-cols-6 gap-1.5">
       {Array.from({ length: 30 }, (_, index) => (
         <i
-          className={cn("aspect-square border", index === 15 || index === 16 ? "border-blue-600 bg-blue-600" : index % 5 === 0 ? "border-blue-200 bg-blue-50" : "border-zinc-200 bg-zinc-50")}
+          className={cn("aspect-square border", index === 15 || index === 16 ? "border-blue-600 bg-blue-600" : index % 5 === 0 ? "border-blue-200 bg-blue-50 dark:border-blue-900 dark:bg-blue-950" : "border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900")}
           key={index}
         />
       ))}
