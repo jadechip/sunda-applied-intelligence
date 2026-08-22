@@ -418,12 +418,12 @@ section { scroll-margin-top: 20px; }
   position: absolute;
   top: 50%;
   left: 50%;
-  width: auto;
+  width: 158%;
   max-width: none;
-  height: 116%;
-  object-fit: contain;
+  height: 158%;
+  object-fit: cover;
   object-position: center;
-  transform: translate(-50%, -50%) rotate(90deg);
+  transform: translate(-50%, -50%) rotate(45deg);
   pointer-events: none;
   user-select: none;
 }
@@ -435,8 +435,9 @@ section { scroll-margin-top: 20px; }
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(90deg, #000 0, rgba(0, 0, 0, .94) 7%, transparent 18%, transparent 82%, rgba(0, 0, 0, .94) 93%, #000 100%),
-    linear-gradient(#000 0, transparent 11%, transparent 89%, #000 100%);
+    linear-gradient(90deg, #000 0, rgba(0, 0, 0, .96) 4%, transparent 15%, transparent 85%, rgba(0, 0, 0, .96) 96%, #000 100%),
+    linear-gradient(#000 0, rgba(0, 0, 0, .9) 4%, transparent 14%, transparent 86%, rgba(0, 0, 0, .9) 96%, #000 100%);
+  box-shadow: inset 0 0 92px 18px #000;
 }
 
 @media (min-width: 1024px) {
@@ -458,11 +459,15 @@ section { scroll-margin-top: 20px; }
 
 @media (max-width: 640px) {
   .hero-background-visual { min-height: 0; }
-  .hero-ribbon-image { height: 88%; }
+  .hero-ribbon-image {
+    width: 172%;
+    height: 172%;
+  }
   .hero-ribbon-blend {
     background:
-      linear-gradient(90deg, #000 0, transparent 13%, transparent 87%, #000 100%),
-      linear-gradient(#000 0, transparent 8%, transparent 92%, #000 100%);
+      linear-gradient(90deg, #000 0, transparent 12%, transparent 88%, #000 100%),
+      linear-gradient(#000 0, transparent 10%, transparent 90%, #000 100%);
+    box-shadow: inset 0 0 58px 10px #000;
   }
 }
 
