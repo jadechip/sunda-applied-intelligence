@@ -438,6 +438,62 @@ section { scroll-margin-top: 20px; }
     linear-gradient(#000 0, transparent 8%, transparent 92%, #000 100%);
 }
 
+.glass-experiment-hero {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  background: #00030b;
+}
+.glass-light-button { color: #09090b; }
+.fractal-glass-visual {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 67% 45%, rgba(37, 99, 235, .48), transparent 38%),
+    #00030b;
+}
+.fractal-glass-visual canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.fractal-glass-shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.fractal-glass-shade {
+  background:
+    linear-gradient(90deg, rgba(0, 3, 11, .48) 0%, rgba(0, 3, 11, .18) 44%, transparent 76%),
+    linear-gradient(180deg, rgba(0, 3, 11, .1), transparent 64%, rgba(0, 3, 11, .48));
+}
+.hero > .fractal-glass-visual .fractal-glass-shade {
+  background:
+    linear-gradient(90deg, rgba(0, 3, 11, .76) 0%, rgba(0, 3, 11, .46) 40%, transparent 74%),
+    linear-gradient(180deg, rgba(0, 3, 11, .12), transparent 60%, rgba(0, 3, 11, .64));
+}
+
+.hero-intro { isolation: isolate; }
+
+@media (max-width: 1023px) {
+  .hero-intro { min-height: 820px; }
+  .hero-intro .hero-ribbon-visual {
+    position: absolute;
+    z-index: 0;
+    right: -38%;
+    bottom: -48px;
+    left: 18%;
+    width: auto;
+    min-height: 650px;
+    opacity: .88;
+    pointer-events: none;
+  }
+  .hero-intro .hero-ribbon-image { object-position: 48% 50%; }
+}
+
 @media (min-width: 1024px) {
   .hero-intro { min-height: 820px; }
   .hero-intro .hero-ribbon-visual {
@@ -465,7 +521,19 @@ section { scroll-margin-top: 20px; }
 }
 
 @media (max-width: 640px) {
-  .hero-ribbon-visual { min-height: 460px; }
+  .hero-intro { min-height: 790px; }
+  .hero-intro .hero-ribbon-visual {
+    right: -78%;
+    bottom: -30px;
+    left: -4%;
+    min-height: 560px;
+    opacity: .84;
+  }
+  .fractal-glass-shade {
+    background:
+      linear-gradient(90deg, rgba(0, 3, 11, .62), rgba(0, 3, 11, .18) 76%, rgba(0, 3, 11, .24)),
+      linear-gradient(180deg, rgba(0, 3, 11, .12), transparent 48%, rgba(0, 3, 11, .72));
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

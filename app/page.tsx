@@ -1,5 +1,5 @@
-import { CardDecorator, FeatureCard, Features } from "@/components/ui/features-10";
-import { TechSolutionsHeroVisual } from "@/components/ui/tech-solutions-hero-section";
+import { CardDecorator, FeatureCard } from "@/components/ui/features-10";
+import { FractalGlassHeroVisual } from "@/components/ui/fractal-glass-hero-visual";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import {
   ArrowDown,
@@ -65,6 +65,19 @@ const principles = [
   ["Built for the region", "Local context is product infrastructure, not a translation layer."],
 ];
 
+const useCases = [
+  "Wallets",
+  "Metering",
+  "Marketplaces",
+  "Gaming",
+  "Subscriptions",
+  "Neobank / BaaS",
+  "Currency Exchange",
+  "Coupon and Rewards System",
+  "AI Credits",
+  "Lending & Credit Lines",
+];
+
 function Wordmark() {
   return (
     <span className="flex items-center gap-2.5 text-lg font-semibold tracking-[-0.035em] text-zinc-950 dark:text-zinc-50">
@@ -74,12 +87,9 @@ function Wordmark() {
   );
 }
 
-function SectionLabel({ number, children }: { number: string; children: React.ReactNode }) {
+function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400">
-      <span className="text-zinc-300 dark:text-zinc-700">{number}</span>
-      {children}
-    </p>
+    <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400">{children}</p>
   );
 }
 
@@ -87,11 +97,13 @@ export default function Home() {
   return (
     <main className="overflow-hidden bg-white text-zinc-950 transition-colors duration-300 dark:bg-zinc-950 dark:text-zinc-50">
       <section className="hero dark" id="top">
+        <FractalGlassHeroVisual />
         <header className="relative z-10 mx-auto flex h-16 max-w-6xl items-center justify-between border-b border-zinc-200 px-6 dark:border-zinc-800 lg:px-8">
           <a href="#top" aria-label="Sunda home"><Wordmark /></a>
           <nav className="hidden items-center gap-7 text-sm text-zinc-500 dark:text-zinc-400 md:flex" aria-label="Primary navigation">
             <a className="transition hover:text-zinc-950 dark:hover:text-white" href="#approach">Approach</a>
             <a className="transition hover:text-zinc-950 dark:hover:text-white" href="#focus">Focus</a>
+            <a className="transition hover:text-zinc-950 dark:hover:text-white" href="#use-cases">Use cases</a>
             <a className="transition hover:text-zinc-950 dark:hover:text-white" href="#region">Why here</a>
           </nav>
           <div className="flex items-center gap-2">
@@ -124,7 +136,6 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <TechSolutionsHeroVisual />
         </div>
 
         <div className="relative z-10 mx-auto grid max-w-6xl border-x border-t border-zinc-200 bg-white/90 dark:border-zinc-800 dark:bg-zinc-900/90 sm:grid-cols-2 lg:grid-cols-4">
@@ -142,7 +153,7 @@ export default function Home() {
         <div className="mx-auto max-w-5xl px-6">
           <div className="grid gap-10 md:grid-cols-[1fr_360px] md:items-end">
             <div>
-              <SectionLabel number="01">Our approach</SectionLabel>
+              <SectionLabel>Our approach</SectionLabel>
               <h2 className="mt-7 max-w-3xl text-balance text-4xl font-semibold leading-[1.02] tracking-[-0.05em] sm:text-5xl md:text-6xl">
                 The most valuable systems begin with a better question.
               </h2>
@@ -152,9 +163,6 @@ export default function Home() {
               <p>No fixed platform. No solution looking for a problem. We find the constraint and build toward a measurable change.</p>
             </div>
           </div>
-          <div className="mt-16 md:mt-20">
-            <Features />
-          </div>
         </div>
       </section>
 
@@ -162,7 +170,7 @@ export default function Home() {
         <div className="mx-auto max-w-5xl px-6">
           <div className="grid gap-10 md:grid-cols-[1fr_340px] md:items-end">
             <div>
-              <SectionLabel number="02">Where we are looking</SectionLabel>
+              <SectionLabel>Where we are looking</SectionLabel>
               <h2 className="mt-7 max-w-3xl text-balance text-4xl font-semibold leading-[1.02] tracking-[-0.05em] sm:text-5xl md:text-6xl">
                 Opportunity hides in the work between the systems.
               </h2>
@@ -194,11 +202,42 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="border-y border-zinc-200 bg-white py-24 dark:border-zinc-800 dark:bg-zinc-950 md:py-32" id="use-cases" aria-labelledby="use-cases-title">
+        <div className="mx-auto max-w-5xl px-6">
+          <SectionLabel>Use cases</SectionLabel>
+          <h2 id="use-cases-title" className="mt-7 max-w-4xl text-balance text-4xl font-semibold leading-[1.02] tracking-[-0.05em] sm:text-5xl md:text-6xl">
+            <span>Products that move value.</span>{" "}
+            <span className="text-zinc-400 dark:text-zinc-600">Explore the use cases.</span>
+          </h2>
+
+          <div className="mt-14 grid border-t border-zinc-200 dark:border-zinc-800 md:grid-cols-2 md:gap-x-8">
+            {useCases.map((useCase, index) => (
+              <a
+                className="group flex min-h-24 items-center justify-between gap-4 border-b border-zinc-200 px-3 py-6 transition-colors hover:bg-blue-50/70 focus-visible:bg-blue-50/70 dark:border-zinc-800 dark:hover:bg-blue-950/20 dark:focus-visible:bg-blue-950/20 sm:px-4 sm:py-7"
+                href="#contact"
+                aria-label={`Discuss ${useCase} with Sunda`}
+                key={useCase}
+              >
+                <span className="flex min-w-0 items-center gap-4 sm:gap-6">
+                  <span className="font-mono text-[10px] text-zinc-400 transition-colors group-hover:text-blue-600 dark:text-zinc-600 dark:group-hover:text-blue-400">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="min-w-0 text-xl font-semibold leading-tight tracking-[-0.03em] sm:text-2xl">
+                    {useCase}
+                  </span>
+                </span>
+                <ArrowUpRight className="size-5 shrink-0 text-zinc-400 transition group-hover:translate-x-0.5 group-hover:text-blue-600 dark:text-zinc-600 dark:group-hover:text-blue-400" aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="region-panel relative overflow-hidden bg-zinc-950 py-24 text-white md:py-32" id="region">
         <div className="region-grid" aria-hidden="true" />
         <div className="relative mx-auto grid max-w-5xl gap-16 px-6 lg:grid-cols-[1fr_380px] lg:items-end">
           <div>
-            <p className="flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-400"><span className="text-zinc-700">03</span> Why here</p>
+            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-400">Why here</p>
             <h2 className="mt-7 max-w-3xl text-balance text-5xl font-semibold leading-[.98] tracking-[-0.055em] md:text-7xl">
               Built from here, for complexity everywhere.
             </h2>
@@ -231,7 +270,7 @@ export default function Home() {
         <div className="mx-auto max-w-5xl px-6">
           <div className="grid gap-10 md:grid-cols-[1fr_340px] md:items-end">
             <div>
-              <SectionLabel number="04">How we work</SectionLabel>
+              <SectionLabel>How we work</SectionLabel>
               <h2 className="mt-7 max-w-3xl text-balance text-4xl font-semibold leading-[1.02] tracking-[-0.05em] sm:text-5xl md:text-6xl">
                 A venture studio for unresolved work.
               </h2>
@@ -260,7 +299,7 @@ export default function Home() {
           <FeatureCard className="bg-white px-6 py-10 dark:bg-zinc-900/70 sm:px-10 md:px-14 md:py-14">
             <div className="grid gap-12 lg:grid-cols-[1fr_360px] lg:items-end">
               <div>
-                <SectionLabel number="05">Start here</SectionLabel>
+                <SectionLabel>Start here</SectionLabel>
                 <h2 className="mt-7 max-w-2xl text-balance text-5xl font-semibold leading-[.98] tracking-[-0.055em] md:text-7xl">
                   Tell us where the work gets stuck.
                 </h2>
