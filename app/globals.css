@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 240 10% 4%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 4%;
+  --primary: 221 83% 53%;
+  --primary-foreground: 210 40% 98%;
+  --muted: 240 5% 96%;
+  --muted-foreground: 240 4% 46%;
+  --border: 240 6% 90%;
+}
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-border: hsl(var(--border));
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+::selection { color: white; background: #2563eb; }
+:focus-visible { outline: 2px solid #2563eb; outline-offset: 4px; }
+section { scroll-margin-top: 20px; }
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  background: #fafafa;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(56% 52% at 74% 42%, rgba(37, 99, 235, .085), transparent 72%),
+    linear-gradient(rgba(24,24,27,.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24,24,27,.028) 1px, transparent 1px);
+  background-size: auto, 32px 32px, 32px 32px;
+  mask-image: linear-gradient(to bottom, black 0 80%, transparent 99%);
+}
+
+.hero-workspace {
+  position: relative;
+  min-height: 430px;
+  border: 1px solid #d4d4d8;
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 24px 60px rgba(24,24,27,.08);
+}
+.workspace-head {
+  height: 52px;
+  padding: 0 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px dashed #d4d4d8;
+  color: #71717a;
+  font: 10px/1 var(--font-geist-mono), monospace;
+  letter-spacing: .08em;
+}
+.workspace-head span:first-child { display: flex; align-items: center; gap: 9px; color: #3f3f46; }
+.workspace-head i { width: 7px; height: 7px; border-radius: 50%; background: #2563eb; box-shadow: 0 0 0 4px rgba(37,99,235,.1); }
+.workspace-canvas { position: relative; min-height: 322px; overflow: hidden; }
+.canvas-grid {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, #d4d4d8 1px, transparent 1px);
+  background-size: 20px 20px;
+  mask-image: radial-gradient(circle at center, black, transparent 78%);
+}
+.canvas-path { position: absolute; display: block; border: 1px solid #a1a1aa; border-radius: 50%; transform: rotate(-18deg); }
+.path-one { width: 84%; height: 38%; left: 8%; top: 28%; }
+.path-two { width: 104%; height: 62%; left: -2%; top: 16%; border-color: #bfdbfe; }
+.canvas-node { position: absolute; display: block; width: 11px; height: 11px; border: 3px solid #2563eb; background: white; border-radius: 50%; box-shadow: 0 0 0 6px rgba(37,99,235,.08); }
+.canvas-node-a { left: 24%; top: 38%; }
+.canvas-node-b { right: 20%; top: 31%; border-color: #60a5fa; }
+.canvas-node-c { left: 51%; bottom: 25%; border-color: #18181b; }
+.insight-card { position: absolute; left: 29%; top: 28%; width: 210px; padding: 14px; border: 1px solid #d4d4d8; background: rgba(255,255,255,.96); box-shadow: 0 14px 32px rgba(24,24,27,.1); }
+.insight-card span { display: block; color: #2563eb; font: 8px/1 var(--font-geist-mono), monospace; letter-spacing: .1em; }
+.insight-card strong { display: block; margin: 20px 0 5px; color: #27272a; font-size: 14px; line-height: 1.3; }
+.insight-card small { color: #a1a1aa; font-size: 10px; }
+.workspace-foot { height: 55px; display: flex; align-items: center; justify-content: center; gap: 14px; border-top: 1px dashed #d4d4d8; color: #71717a; font-size: 11px; }
+.workspace-foot i { width: 28px; height: 1px; background: #d4d4d8; }
+
+.region-panel { isolation: isolate; }
+.region-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: .56;
+  background:
+    radial-gradient(48% 62% at 78% 50%, rgba(37,99,235,.42), transparent 75%),
+    radial-gradient(circle, rgba(255,255,255,.13) 1px, transparent 1px);
+  background-size: auto, 22px 22px;
+  mask-image: linear-gradient(90deg, transparent, black 42%);
+}
+
+@media (max-width: 640px) {
+  .hero-workspace { min-height: 365px; }
+  .workspace-canvas { min-height: 258px; }
+  .insight-card { left: 15%; width: 190px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
