@@ -86,7 +86,7 @@ function SectionLabel({ number, children }: { number: string; children: React.Re
 export default function Home() {
   return (
     <main className="overflow-hidden bg-white text-zinc-950 transition-colors duration-300 dark:bg-zinc-950 dark:text-zinc-50">
-      <section className="hero" id="top">
+      <section className="hero dark" id="top">
         <header className="relative z-10 mx-auto flex h-16 max-w-6xl items-center justify-between border-b border-zinc-200 px-6 dark:border-zinc-800 lg:px-8">
           <a href="#top" aria-label="Sunda home"><Wordmark /></a>
           <nav className="hidden items-center gap-7 text-sm text-zinc-500 dark:text-zinc-400 md:flex" aria-label="Primary navigation">
@@ -102,8 +102,8 @@ export default function Home() {
           </div>
         </header>
 
-        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 md:py-28 lg:grid-cols-[1fr_1.08fr] lg:gap-10 lg:px-8 lg:py-32">
-          <div>
+        <div className="hero-intro relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 md:py-28 lg:grid-cols-[1fr_1.08fr] lg:gap-10 lg:px-8 lg:py-32">
+          <div className="relative z-10">
             <p className="mb-6 flex items-center gap-2.5 text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400">
               <i className="size-1.5 rounded-full bg-blue-600 shadow-[0_0_0_4px_rgba(37,99,235,.1)]" />
               Applied intelligence / Southeast Asia
