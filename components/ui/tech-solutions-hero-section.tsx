@@ -9,16 +9,14 @@ export function TechSolutionsHeroVisual({ className }: TechSolutionsHeroVisualPr
     <div
       className={cn("hero-ribbon-visual", className)}
       role="img"
-      aria-label="Luminous blue ribbons crossing a dark field"
+      aria-label="Teal light passing through vertical folded forms"
     >
       <img
         className="hero-ribbon-image"
-        src="/hero-ribbon-field.png"
+        src="/hero-teal-folds.jpg"
         alt=""
         aria-hidden="true"
       />
-      <span className="hero-ribbon-tint" aria-hidden="true" />
-      <span className="hero-ribbon-blend" aria-hidden="true" />
     </div>
   );
 }
