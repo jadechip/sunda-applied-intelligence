@@ -410,17 +410,18 @@ section { scroll-margin-top: 20px; }
 .dark .hero-ribbon-visual { background: #000; }
 .hero-background-visual {
   position: absolute;
-  inset: 0;
+  inset: 0 0 auto;
   z-index: 0;
+  height: min(100svh, 900px);
   min-height: 0;
 }
 .hero-ribbon-image {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: min(112%, 2000px);
+  width: auto;
   max-width: none;
-  height: auto;
+  height: min(64vw, 820px);
   object-fit: contain;
   object-position: center;
   transform: translate(-50%, -50%) rotate(45deg);
@@ -470,8 +471,8 @@ section { scroll-margin-top: 20px; }
 @media (max-width: 640px) {
   .hero-background-visual { min-height: 0; }
   .hero-ribbon-image {
-    width: 140%;
-    height: auto;
+    width: auto;
+    height: min(94vw, 520px);
   }
   .hero-ribbon-blend {
     background:
