@@ -417,11 +417,11 @@ section { scroll-margin-top: 20px; }
 }
 .hero-ribbon-image {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 47%;
+  left: 56%;
   width: auto;
   max-width: none;
-  height: min(64vw, 820px);
+  height: min(78vw, 1020px);
   object-fit: contain;
   object-position: center;
   transform: translate(-50%, -50%) rotate(45deg);
@@ -453,6 +453,10 @@ section { scroll-margin-top: 20px; }
 
 @media (min-width: 1024px) {
   .hero-intro { min-height: 820px; }
+  .hero-ribbon-image {
+    top: 46%;
+    left: 60%;
+  }
 }
 
 .region-panel { isolation: isolate; }
@@ -471,8 +475,10 @@ section { scroll-margin-top: 20px; }
 @media (max-width: 640px) {
   .hero-background-visual { min-height: 0; }
   .hero-ribbon-image {
+    top: 43%;
+    left: 53%;
     width: auto;
-    height: min(94vw, 520px);
+    height: min(128vw, 680px);
   }
   .hero-ribbon-blend {
     background:
