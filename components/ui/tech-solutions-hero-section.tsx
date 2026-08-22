@@ -17,6 +17,7 @@ export function TechSolutionsHeroVisual({ className }: TechSolutionsHeroVisualPr
         alt=""
         aria-hidden="true"
       />
+      <span className="hero-ribbon-tint" aria-hidden="true" />
       <span className="hero-ribbon-blend" aria-hidden="true" />
     </div>
   );
