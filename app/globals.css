@@ -410,9 +410,9 @@ section { scroll-margin-top: 20px; }
 .dark .hero-ribbon-visual { background: #000; }
 .hero-background-visual {
   position: absolute;
-  inset: 0 0 auto;
+  inset: 0;
   z-index: 0;
-  height: min(100svh, 900px);
+  height: auto;
   min-height: 0;
 }
 .hero-ribbon-image {
