@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { FractalGlassHeroVisual } from "@/components/ui/fractal-glass-hero-visual";
 import {
   ArrowDown,
@@ -23,10 +24,9 @@ export const metadata: Metadata = {
 };
 
 const signals = [
-  { number: "01", title: "Operations", body: "Find the work that should move faster." },
-  { number: "02", title: "Intelligence", body: "Turn real workflows into useful systems." },
-  { number: "03", title: "Infrastructure", body: "Build for the way Southeast Asia works." },
-  { number: "04", title: "Outcomes", body: "Start with the constraint, not the category." },
+  { label: "ENVIRONMENTS", title: "Software twins", body: "Resettable replicas of the interfaces where difficult work still happens." },
+  { label: "EVALUATION", title: "Expert tasks", body: "Real workflows shaped with people who understand the decisions behind them." },
+  { label: "SIGNALS", title: "Graders & traces", body: "Measurable outcomes, with a path from benchmark to training." },
 ];
 
 function Wordmark() {
@@ -45,11 +45,11 @@ export default function HeroExperiment() {
         <FractalGlassHeroVisual />
 
         <header className="relative z-20 mx-auto flex h-16 max-w-6xl items-center justify-between border-b border-white/15 px-5 sm:px-6 lg:px-8">
-          <a href="/" aria-label="Sunda home"><Wordmark /></a>
+          <Link href="/" aria-label="Sunda home"><Wordmark /></Link>
           <div className="flex items-center gap-2">
-            <a className="hidden h-9 items-center gap-2 border border-white/20 bg-black/20 px-3.5 text-sm text-zinc-300 backdrop-blur-sm transition hover:border-blue-400 hover:text-white sm:inline-flex" href="/">
+            <Link className="hidden h-9 items-center gap-2 border border-white/20 bg-black/20 px-3.5 text-sm text-zinc-300 backdrop-blur-sm transition hover:border-blue-400 hover:text-white sm:inline-flex" href="/">
               <ArrowLeft className="size-3.5" aria-hidden="true" /> Current version
-            </a>
+            </Link>
             <a className="glass-light-button inline-flex h-9 items-center gap-2 bg-white px-3.5 text-sm font-medium transition hover:bg-blue-50" href="/#contact">
               Talk to us <ArrowUpRight className="size-3.5" aria-hidden="true" />
             </a>
@@ -60,14 +60,14 @@ export default function HeroExperiment() {
           <div className="max-w-3xl">
             <p className="mb-6 flex items-center gap-2.5 text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-300">
               <i className="size-1.5 rounded-full bg-blue-400 shadow-[0_0_0_4px_rgba(96,165,250,.14)]" />
-              Applied intelligence / Southeast Asia
+              Evaluation infrastructure / computer-use
             </p>
             <h1 className="max-w-3xl text-balance text-5xl font-semibold leading-[.96] tracking-[-0.058em] sm:text-6xl lg:text-[78px]">
-              Intelligence for the work that moves Southeast Asia.
+              Intelligence for the work that lives beyond the API.
             </h1>
             <p className="mt-7 max-w-xl text-balance text-lg leading-8 text-zinc-300">
-              We work with ambitious operators to turn complex, high-friction
-              workflows into systems that learn, adapt, and scale.
+              Sunda builds realistic software environments and expert-authored
+              evaluation data for teams advancing computer-use agents.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a className="inline-flex h-12 items-center justify-center gap-8 bg-blue-600 px-5 text-sm font-medium text-white transition hover:bg-blue-500" href="/#contact">
@@ -79,10 +79,10 @@ export default function HeroExperiment() {
             </div>
           </div>
 
-          <div className="mt-20 grid border-x border-t border-white/15 bg-black/35 backdrop-blur-md sm:grid-cols-2 lg:mt-24 lg:grid-cols-4">
+          <div className="mt-20 grid border-x border-t border-white/15 bg-black/35 backdrop-blur-md sm:grid-cols-3 lg:mt-24">
             {signals.map((signal) => (
-              <article className="min-h-28 border-b border-r border-white/15 p-5 last:border-r-0 lg:border-b-0" key={signal.number}>
-                <span className="float-right font-mono text-[9px] text-blue-300/45">{signal.number}</span>
+              <article className="min-h-28 border-b border-r border-white/15 p-5 last:border-r-0 sm:border-b-0" key={signal.title}>
+                <span className="float-right font-mono text-[9px] text-blue-300/45">{signal.label}</span>
                 <h2 className="mt-4 text-sm font-medium">{signal.title}</h2>
                 <p className="mt-1 text-xs leading-5 text-zinc-400">{signal.body}</p>
               </article>

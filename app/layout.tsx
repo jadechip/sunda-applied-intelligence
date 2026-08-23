@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -13,30 +12,21 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "localhost:3001";
-  const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  const socialImage = `${protocol}://${host}/og.png`;
-
-  return {
-    title: "Sunda — Applied intelligence for Southeast Asia",
-    description:
-      "Sunda works with ambitious operators to turn complex, high-friction workflows into systems that learn, adapt, and scale.",
-    openGraph: {
-      title: "Sunda — Applied intelligence for Southeast Asia",
-      description: "Intelligence for the work that moves Southeast Asia.",
-      type: "website",
-      images: [{ url: socialImage, width: 1731, height: 909, alt: "Sunda — Intelligence for the work that moves Southeast Asia." }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Sunda — Applied intelligence for Southeast Asia",
-      description: "Intelligence for the work that moves Southeast Asia.",
-      images: [socialImage],
-    },
-  };
-}
+export const metadata: Metadata = {
+  title: "Sunda — Evaluation infrastructure for computer-use agents",
+  description:
+    "Sunda builds realistic software environments and expert-authored evaluation data for teams advancing computer-use agents.",
+  openGraph: {
+    title: "Sunda — Intelligence for work beyond the API",
+    description: "Realistic software environments and expert-authored evaluation data for computer-use agents.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Sunda — Intelligence for work beyond the API",
+    description: "Realistic software environments and expert-authored evaluation data for computer-use agents.",
+  },
+};
 
 export default function RootLayout({
   children,
