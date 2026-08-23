@@ -507,17 +507,38 @@ section { scroll-margin-top: 20px; }
   }
 }
 
-.region-panel { isolation: isolate; }
-.region-grid {
+.ribbon-field-panel {
+  isolation: isolate;
+  background: #030304;
+}
+.ribbon-field-section-visual {
   position: absolute;
   inset: 0;
   z-index: -1;
-  opacity: .56;
+  overflow: hidden;
+  pointer-events: none;
+  background: #030304;
+}
+.ribbon-field-section-visual > .threeui-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.ribbon-field-section-scrim {
+  position: absolute;
+  inset: 0;
   background:
-    radial-gradient(48% 62% at 78% 50%, rgba(37,99,235,.42), transparent 75%),
-    radial-gradient(circle, rgba(255,255,255,.13) 1px, transparent 1px);
-  background-size: auto, 22px 22px;
-  mask-image: linear-gradient(90deg, transparent, black 42%);
+    linear-gradient(90deg, rgba(3,3,4,.92) 0%, rgba(3,3,4,.72) 38%, rgba(3,3,4,.1) 78%),
+    linear-gradient(180deg, rgba(3,3,4,.34), transparent 38%, rgba(3,3,4,.5));
+}
+
+@media (max-width: 768px) {
+  .ribbon-field-section-scrim {
+    background:
+      linear-gradient(90deg, rgba(3,3,4,.78), rgba(3,3,4,.22)),
+      linear-gradient(180deg, rgba(3,3,4,.4), transparent 38%, rgba(3,3,4,.72));
+  }
 }
 
 @media (max-width: 640px) {

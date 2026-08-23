@@ -1,5 +1,6 @@
 import { CardDecorator, FeatureCard } from "@/components/ui/features-10";
 import { FractalGlassHeroVisual } from "@/components/ui/fractal-glass-hero-visual";
+import { RibbonFieldSectionVisual } from "@/components/ui/ribbon-field-section-visual";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import {
   ArrowDown,
@@ -246,8 +247,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="region-panel relative overflow-hidden bg-zinc-950 py-24 text-white md:py-32" id="positioning">
-        <div className="region-grid" aria-hidden="true" />
+      <section className="ribbon-field-panel relative overflow-hidden bg-zinc-950 py-24 text-white md:py-32" id="positioning">
+        <RibbonFieldSectionVisual />
         <div className="relative mx-auto grid max-w-5xl gap-16 px-6 lg:grid-cols-[1fr_380px] lg:items-end">
           <div>
             <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-400">Why it matters</p>
@@ -260,7 +261,7 @@ export default function Home() {
               local operating knowledge—especially where an API cannot stand in for the real task.
             </p>
           </div>
-          <FeatureCard className="border-zinc-700 bg-zinc-900 p-6 text-white shadow-none">
+          <FeatureCard className="border-zinc-700 bg-zinc-900/90 p-6 text-white shadow-none backdrop-blur-sm">
             <div className="flex items-center justify-between">
               <ScanSearch className="size-5 text-blue-400" strokeWidth={1.6} aria-hidden="true" />
               <span className="font-mono text-[9px] tracking-[0.12em] text-zinc-500">SIGNALS THAT MATTER</span>
