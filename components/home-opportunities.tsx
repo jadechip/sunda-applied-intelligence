@@ -47,7 +47,7 @@ export function HomeOpportunities() {
         </div>
 
         <div className="mt-10 flex justify-center">
-          <Link className="inline-flex h-12 items-center justify-center gap-8 bg-zinc-950 px-5 text-sm font-medium text-white transition hover:bg-blue-600 dark:bg-black dark:text-white dark:hover:bg-blue-500" href="/opportunities">
+          <Link className="inline-flex h-12 items-center justify-center gap-8 bg-blue-600 px-5 text-sm font-medium text-white transition hover:bg-blue-700" href="/opportunities">
             View all opportunities <ArrowUpRight className="size-4" aria-hidden="true" />
           </Link>
         </div>
