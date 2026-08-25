@@ -20,11 +20,9 @@ export function SiteHeader({ inverse = false }: { inverse?: boolean }) {
         <Link className={`transition ${navClass}`} href="/#principles">Principles</Link>
       </nav>
       <div className="flex items-center gap-2">
-        {!inverse && <ThemeToggle />}
+        <ThemeToggle inverse={inverse} />
         <Link
-          className={inverse
-            ? "inline-flex h-9 items-center gap-2 border border-zinc-700 bg-zinc-900 px-3.5 text-sm font-medium text-zinc-100 transition hover:border-blue-500 hover:text-blue-400"
-            : "inline-flex h-9 items-center gap-2 border border-zinc-300 bg-white px-3.5 text-sm font-medium shadow-sm transition hover:border-blue-600 hover:text-blue-700 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:border-blue-500 dark:hover:text-blue-400"}
+          className="inline-flex h-9 items-center gap-2 border border-white/20 bg-black px-3.5 text-sm font-medium text-white shadow-sm transition hover:border-blue-600 hover:bg-blue-600"
           href="/opportunities"
         >
           Find work <ArrowUpRight className="size-3.5" aria-hidden="true" />

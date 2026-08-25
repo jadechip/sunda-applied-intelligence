@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sunda-applied-intelligence.jadechip.chatgpt.site"),
+  metadataBase: new URL("https://gradnorm.jadechip.workers.dev"),
   title: "GradNorm — Expert data for real-world AI",
   description:
     "GradNorm connects frontier AI teams with vetted experts to create high-quality training data, evaluations, and real-world environments.",
@@ -37,11 +37,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{if(localStorage.getItem("gradnorm-theme")==="light")document.documentElement.classList.remove("dark")}catch(e){}`,
+            __html: `try{if(localStorage.getItem("gradnorm-theme")==="dark")document.documentElement.classList.add("dark")}catch(e){}`,
           }}
         />
       </head>

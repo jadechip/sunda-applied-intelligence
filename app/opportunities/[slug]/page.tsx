@@ -1,4 +1,5 @@
 import { BrandWordmark } from "@/components/brand-wordmark";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { getOpportunity, opportunities } from "@/lib/opportunities";
 import { ArrowLeft, ArrowUpRight, Check, Clock3, MapPin } from "lucide-react";
 import type { Metadata } from "next";
@@ -48,9 +49,12 @@ export default async function OpportunityDetailPage({ params }: OpportunityPageP
       <header className="border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 lg:px-8">
           <Link href="/" aria-label="GradNorm home"><BrandWordmark /></Link>
-          <Link className="flex items-center gap-2 text-sm text-zinc-500 transition hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400" href="/opportunities">
-            <ArrowLeft className="size-4" aria-hidden="true" /> All opportunities
-          </Link>
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            <Link className="flex items-center gap-2 text-sm text-zinc-500 transition hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400" href="/opportunities">
+              <ArrowLeft className="size-4" aria-hidden="true" /> All opportunities
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -128,7 +132,7 @@ export default async function OpportunityDetailPage({ params }: OpportunityPageP
             ))}
           </div>
 
-          <a className="mt-7 flex h-13 items-center justify-between bg-blue-600 px-5 text-sm font-medium text-white transition hover:bg-blue-500" href={applicationHref}>
+          <a className="mt-7 flex h-13 items-center justify-between bg-blue-600 px-5 text-sm font-medium text-white transition hover:bg-blue-700" href={applicationHref}>
             Apply for this project <ArrowUpRight className="size-4" aria-hidden="true" />
           </a>
           <p className="mt-3 font-mono text-[9px] uppercase leading-4 tracking-[0.1em] text-zinc-500">Applications are reviewed on a rolling basis</p>

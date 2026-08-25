@@ -1,26 +1,44 @@
 "use client";
 
 import { Moon, Sun } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
-export function ThemeToggle() {
-  const [isDark, setIsDark] = useState(true);
+const themeChangeEvent = "gradnorm-theme-change";
 
-  useEffect(() => {
-    setIsDark(document.documentElement.classList.contains("dark"));
-  }, []);
+function subscribeToTheme(onStoreChange: () => void) {
+  window.addEventListener("storage", onStoreChange);
+  window.addEventListener(themeChangeEvent, onStoreChange);
+
+  return () => {
+    window.removeEventListener("storage", onStoreChange);
+    window.removeEventListener(themeChangeEvent, onStoreChange);
+  };
+}
+
+function getThemeSnapshot() {
+  return document.documentElement.classList.contains("dark");
+}
+
+function getServerThemeSnapshot() {
+  return false;
+}
+
+export function ThemeToggle({ inverse = false }: { inverse?: boolean }) {
+  const isDark = useSyncExternalStore(subscribeToTheme, getThemeSnapshot, getServerThemeSnapshot);
 
   function toggleTheme() {
     const nextTheme = !isDark;
     document.documentElement.classList.toggle("dark", nextTheme);
     window.localStorage.setItem("gradnorm-theme", nextTheme ? "dark" : "light");
-    setIsDark(nextTheme);
+    window.dispatchEvent(new Event(themeChangeEvent));
   }
 
   return (
     <button
       type="button"
-      className="grid size-9 place-items-center border border-zinc-300 bg-white text-zinc-600 shadow-sm transition hover:border-blue-600 hover:text-blue-600 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300"
+      className={inverse
+        ? "grid size-9 place-items-center border border-white/20 bg-black text-white shadow-sm transition hover:border-blue-600 hover:bg-blue-600"
+        : "grid size-9 place-items-center border border-black bg-black text-white shadow-sm transition hover:border-blue-600 hover:bg-blue-600"}
       onClick={toggleTheme}
       aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
       title={isDark ? "Switch to light theme" : "Switch to dark theme"}

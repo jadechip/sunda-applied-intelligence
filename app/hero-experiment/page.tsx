@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BrandWordmark } from "@/components/brand-wordmark";
 import { FractalGlassHeroVisual } from "@/components/ui/fractal-glass-hero-visual";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import {
   ArrowDown,
   ArrowLeft,
@@ -38,10 +39,11 @@ export default function HeroExperiment() {
         <header className="relative z-20 mx-auto flex h-16 max-w-6xl items-center justify-between border-b border-white/15 px-5 sm:px-6 lg:px-8">
           <Link href="/" aria-label="GradNorm home"><BrandWordmark inverse /></Link>
           <div className="flex items-center gap-2">
-            <Link className="hidden h-9 items-center gap-2 border border-white/20 bg-black/20 px-3.5 text-sm text-zinc-300 backdrop-blur-sm transition hover:border-blue-400 hover:text-white sm:inline-flex" href="/">
+            <ThemeToggle inverse />
+            <Link className="hidden h-9 items-center gap-2 border border-white/20 bg-black px-3.5 text-sm text-white transition hover:border-blue-600 hover:bg-blue-600 sm:inline-flex" href="/">
               <ArrowLeft className="size-3.5" aria-hidden="true" /> Current version
             </Link>
-            <Link className="glass-light-button inline-flex h-9 items-center gap-2 bg-white px-3.5 text-sm font-medium transition hover:bg-blue-50" href="/#contact">
+            <Link className="inline-flex h-9 items-center gap-2 bg-blue-600 px-3.5 text-sm font-medium text-white transition hover:bg-blue-700" href="/#contact">
               Talk to us <ArrowUpRight className="size-3.5" aria-hidden="true" />
             </Link>
           </div>
@@ -61,10 +63,10 @@ export default function HeroExperiment() {
               create high-quality training data, evaluations, and real-world environments.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link className="inline-flex h-12 items-center justify-center gap-8 bg-blue-600 px-5 text-sm font-medium text-white transition hover:bg-blue-500" href="/#contact">
+              <Link className="inline-flex h-12 items-center justify-center gap-8 bg-blue-600 px-5 text-sm font-medium text-white transition hover:bg-blue-700" href="/#contact">
                 Build with GradNorm <ArrowUpRight className="size-4" aria-hidden="true" />
               </Link>
-              <Link className="inline-flex h-12 items-center justify-center gap-8 border border-white/25 bg-black/25 px-5 text-sm font-medium text-white backdrop-blur-sm transition hover:border-blue-400/70 hover:bg-black/40" href="/opportunities">
+              <Link className="inline-flex h-12 items-center justify-center gap-8 border border-white/25 bg-black px-5 text-sm font-medium text-white transition hover:border-blue-600 hover:bg-blue-600" href="/opportunities">
                 Explore opportunities <ArrowDown className="size-4 text-blue-400" aria-hidden="true" />
               </Link>
             </div>

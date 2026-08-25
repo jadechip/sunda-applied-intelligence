@@ -106,17 +106,17 @@ export default function Home() {
     <main className="overflow-hidden bg-white text-zinc-950 transition-colors duration-300 dark:bg-zinc-950 dark:text-zinc-50">
       <section className="hero dark" id="top">
         <FractalGlassHeroVisual />
-        <header className="relative z-10 mx-auto flex h-16 max-w-6xl items-center justify-between border-b border-zinc-200 px-6 dark:border-zinc-800 lg:px-8">
+        <header className="relative z-10 mx-auto flex h-16 max-w-6xl items-center justify-between border-b border-white/15 px-6 lg:px-8">
           <a href="#top" aria-label="GradNorm home"><BrandWordmark inverse /></a>
-          <nav className="hidden items-center gap-7 text-sm text-zinc-500 dark:text-zinc-400 md:flex" aria-label="Primary navigation">
-            <a className="transition hover:text-zinc-950 dark:hover:text-white" href="#approach">For AI teams</a>
-            <Link className="transition hover:text-zinc-950 dark:hover:text-white" href="/opportunities">Opportunities</Link>
-            <a className="transition hover:text-zinc-950 dark:hover:text-white" href="#expert-data">How it works</a>
-            <a className="transition hover:text-zinc-950 dark:hover:text-white" href="#principles">Principles</a>
+          <nav className="hidden items-center gap-7 text-sm text-zinc-400 md:flex" aria-label="Primary navigation">
+            <a className="transition hover:text-white" href="#approach">For AI teams</a>
+            <Link className="transition hover:text-white" href="/opportunities">Opportunities</Link>
+            <a className="transition hover:text-white" href="#expert-data">How it works</a>
+            <a className="transition hover:text-white" href="#principles">Principles</a>
           </nav>
           <div className="flex items-center gap-2">
-            <ThemeToggle />
-            <Link className="inline-flex h-9 items-center gap-2 border border-zinc-300 bg-white px-3.5 text-sm font-medium shadow-sm transition hover:border-blue-600 hover:text-blue-700 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:border-blue-500 dark:hover:text-blue-400" href="/opportunities">
+            <ThemeToggle inverse />
+            <Link className="inline-flex h-9 items-center gap-2 border border-white/20 bg-black px-3.5 text-sm font-medium text-white shadow-sm transition hover:border-blue-600 hover:bg-blue-600" href="/opportunities">
               Find expert work <ArrowUpRight className="size-3.5" aria-hidden="true" />
             </Link>
           </div>
@@ -124,14 +124,14 @@ export default function Home() {
 
         <div className="hero-intro relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 md:py-28 lg:grid-cols-[1fr_1.08fr] lg:gap-10 lg:px-8 lg:py-32">
           <div className="relative z-10">
-            <p className="mb-6 flex items-center gap-2.5 text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400">
+            <p className="mb-6 flex items-center gap-2.5 text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-300">
               <i className="size-1.5 rounded-full bg-blue-600 shadow-[0_0_0_4px_rgba(37,99,235,.1)]" />
               Expert data / real-world evaluation
             </p>
-            <h1 className="max-w-3xl text-balance text-5xl font-semibold leading-[.98] tracking-[-0.058em] sm:text-6xl lg:text-[74px]">
+            <h1 className="max-w-3xl text-balance text-5xl font-semibold leading-[.98] tracking-[-0.058em] text-white sm:text-6xl lg:text-[74px]">
               Human expertise for AI that has to work in the real world.
             </h1>
-            <p className="mt-7 max-w-xl text-balance text-lg leading-8 text-zinc-600 dark:text-zinc-400">
+            <p className="mt-7 max-w-xl text-balance text-lg leading-8 text-zinc-300">
               GradNorm connects frontier AI teams with vetted specialists to
               create high-quality training data, evaluations, and real-world environments.
             </p>
@@ -139,19 +139,19 @@ export default function Home() {
               <a className="inline-flex h-12 items-center justify-center gap-8 bg-blue-600 px-5 text-sm font-medium text-white transition hover:bg-blue-700" href="#contact">
                 Build with GradNorm <ArrowUpRight className="size-4" aria-hidden="true" />
               </a>
-              <Link className="inline-flex h-12 items-center justify-center gap-8 border border-zinc-300 bg-white px-5 text-sm font-medium text-zinc-700 shadow-sm transition hover:border-zinc-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-zinc-500" href="/opportunities">
+              <Link className="inline-flex h-12 items-center justify-center gap-8 border border-white/25 bg-black px-5 text-sm font-medium text-white shadow-sm transition hover:border-blue-600 hover:bg-blue-600" href="/opportunities">
                 Explore opportunities <ArrowDown className="size-4 text-blue-600" aria-hidden="true" />
               </Link>
             </div>
           </div>
         </div>
 
-        <div className="relative z-10 mx-auto grid max-w-6xl border-x border-t border-zinc-200 bg-white/90 dark:border-zinc-800 dark:bg-zinc-900/90 sm:grid-cols-3">
+        <div className="relative z-10 mx-auto grid max-w-6xl border-x border-t border-white/15 bg-black/45 text-white backdrop-blur-md sm:grid-cols-3">
           {signals.map((signal) => (
-            <article className="min-h-28 border-b border-r border-zinc-200 p-5 last:border-r-0 dark:border-zinc-800 sm:border-b-0" key={signal.title}>
-              <span className="float-right font-mono text-[9px] text-zinc-300 dark:text-zinc-700">{signal.label}</span>
-              <h2 className="mt-4 text-sm font-medium">{signal.title}</h2>
-              <p className="mt-1 text-xs leading-5 text-zinc-500 dark:text-zinc-400">{signal.body}</p>
+            <article className="min-h-28 border-b border-r border-white/15 p-5 last:border-r-0 sm:border-b-0" key={signal.title}>
+              <span className="float-right font-mono text-[9px] text-blue-300/45">{signal.label}</span>
+              <h2 className="mt-4 text-sm font-medium text-white">{signal.title}</h2>
+              <p className="mt-1 text-xs leading-5 text-zinc-400">{signal.body}</p>
             </article>
           ))}
         </div>

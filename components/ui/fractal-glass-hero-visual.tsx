@@ -274,6 +274,8 @@ export function FractalGlassHeroVisual() {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let animationFrame = 0;
     let currentPixelRatio = 1;
+    let isCanvasVisible = true;
+    let isDocumentVisible = !document.hidden;
     const startTime = performance.now();
 
     const bindQuad = (program: WebGLProgram) => {
@@ -284,7 +286,8 @@ export function FractalGlassHeroVisual() {
     };
 
     const resize = () => {
-      currentPixelRatio = Math.min(window.devicePixelRatio || 1, 1.75);
+      const maxPixelRatio = window.innerWidth < 768 ? 1.25 : 1.5;
+      currentPixelRatio = Math.min(window.devicePixelRatio || 1, maxPixelRatio);
       const width = Math.max(1, Math.floor(canvas.clientWidth * currentPixelRatio));
       const height = Math.max(1, Math.floor(canvas.clientHeight * currentPixelRatio));
       if (canvas.width !== width || canvas.height !== height) {
@@ -294,7 +297,7 @@ export function FractalGlassHeroVisual() {
     };
 
     const render = (now: number) => {
-      resize();
+      animationFrame = 0;
       const elapsed = reducedMotion ? 0 : (now - startTime) / 1000;
 
       gl.bindFramebuffer(gl.FRAMEBUFFER, noiseFramebuffer);
@@ -337,16 +340,51 @@ export function FractalGlassHeroVisual() {
       gl.uniform1i(gl.getUniformLocation(glassProgram, "u_grain_map"), 1);
       gl.drawArrays(gl.TRIANGLES, 0, 6);
 
-      if (!reducedMotion) animationFrame = requestAnimationFrame(render);
+      if (!reducedMotion && isCanvasVisible && isDocumentVisible) {
+        animationFrame = requestAnimationFrame(render);
+      }
     };
 
-    const resizeObserver = new ResizeObserver(resize);
+    const scheduleRender = () => {
+      if (animationFrame || !isCanvasVisible || !isDocumentVisible) return;
+      animationFrame = requestAnimationFrame(render);
+    };
+
+    const stopScheduledRender = () => {
+      cancelAnimationFrame(animationFrame);
+      animationFrame = 0;
+    };
+
+    const handleVisibilityChange = () => {
+      isDocumentVisible = !document.hidden;
+      if (isDocumentVisible) scheduleRender();
+      else stopScheduledRender();
+    };
+
+    const resizeObserver = new ResizeObserver(() => {
+      resize();
+      scheduleRender();
+    });
+    const intersectionObserver = new IntersectionObserver(
+      ([entry]) => {
+        isCanvasVisible = entry.isIntersecting;
+        if (isCanvasVisible) scheduleRender();
+        else stopScheduledRender();
+      },
+      { rootMargin: "120px 0px" },
+    );
+
+    resize();
     resizeObserver.observe(canvas);
-    animationFrame = requestAnimationFrame(render);
+    intersectionObserver.observe(canvas);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    scheduleRender();
 
     return () => {
-      cancelAnimationFrame(animationFrame);
+      stopScheduledRender();
       resizeObserver.disconnect();
+      intersectionObserver.disconnect();
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       gl.deleteTexture(noiseTexture);
       gl.deleteTexture(grainTexture);
       gl.deleteFramebuffer(noiseFramebuffer);
