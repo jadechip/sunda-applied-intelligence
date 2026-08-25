@@ -13,18 +13,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sunda — Evaluation infrastructure for computer-use agents",
+  metadataBase: new URL("https://sunda-applied-intelligence.jadechip.chatgpt.site"),
+  title: "GradNorm — Expert data for real-world AI",
   description:
-    "Sunda builds realistic software environments and expert-authored evaluation data for teams advancing computer-use agents.",
+    "GradNorm connects frontier AI teams with vetted experts to create high-quality training data, evaluations, and real-world environments.",
   openGraph: {
-    title: "Sunda — Intelligence for work beyond the API",
-    description: "Realistic software environments and expert-authored evaluation data for computer-use agents.",
+    title: "GradNorm — Expert data for real-world AI",
+    description: "Vetted experts, high-quality training data, and real-world evaluations for frontier AI teams.",
     type: "website",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "GradNorm — Expert data for real-world AI" }],
   },
   twitter: {
-    card: "summary",
-    title: "Sunda — Intelligence for work beyond the API",
-    description: "Realistic software environments and expert-authored evaluation data for computer-use agents.",
+    card: "summary_large_image",
+    title: "GradNorm — Expert data for real-world AI",
+    description: "Vetted experts, high-quality training data, and real-world evaluations for frontier AI teams.",
+    images: ["/og.png"],
   },
 };
 
@@ -38,7 +41,7 @@ export default function RootLayout({
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{if(localStorage.getItem("sunda-theme")==="light")document.documentElement.classList.remove("dark")}catch(e){}`,
+            __html: `try{if(localStorage.getItem("gradnorm-theme")==="light")document.documentElement.classList.remove("dark")}catch(e){}`,
           }}
         />
       </head>

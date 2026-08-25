@@ -13,7 +13,7 @@ export function ThemeToggle() {
   function toggleTheme() {
     const nextTheme = !isDark;
     document.documentElement.classList.toggle("dark", nextTheme);
-    window.localStorage.setItem("sunda-theme", nextTheme ? "dark" : "light");
+    window.localStorage.setItem("gradnorm-theme", nextTheme ? "dark" : "light");
     setIsDark(nextTheme);
   }
 
