@@ -15,7 +15,6 @@ import {
   Workflow,
   type LucideIcon,
 } from "lucide-react";
-import Link from "next/link";
 
 const signals = [
   {
@@ -110,15 +109,15 @@ export default function Home() {
           <a href="#top" aria-label="GradNorm home"><BrandWordmark inverse /></a>
           <nav className="hidden items-center gap-7 text-sm text-zinc-400 md:flex" aria-label="Primary navigation">
             <a className="transition hover:text-white" href="#approach">For AI teams</a>
-            <Link className="transition hover:text-white" href="/opportunities">Opportunities</Link>
+            <a className="transition hover:text-white" href="/opportunities">Opportunities</a>
             <a className="transition hover:text-white" href="#expert-data">How it works</a>
             <a className="transition hover:text-white" href="#principles">Principles</a>
           </nav>
           <div className="flex items-center gap-2">
             <ThemeToggle inverse />
-            <Link className="inline-flex h-9 items-center gap-2 border border-white/20 bg-black px-3.5 text-sm font-medium text-white shadow-sm transition hover:border-blue-600 hover:bg-blue-600" href="/opportunities">
+            <a className="inline-flex h-9 items-center gap-2 border border-white/20 bg-black px-3.5 text-sm font-medium text-white shadow-sm transition hover:border-blue-600 hover:bg-blue-600" href="/opportunities">
               Find expert work <ArrowUpRight className="size-3.5" aria-hidden="true" />
-            </Link>
+            </a>
           </div>
         </header>
 
@@ -139,9 +138,9 @@ export default function Home() {
               <a className="inline-flex h-12 items-center justify-center gap-8 bg-blue-600 px-5 text-sm font-medium text-white transition hover:bg-blue-700" href="#contact">
                 Build with GradNorm <ArrowUpRight className="size-4" aria-hidden="true" />
               </a>
-              <Link className="inline-flex h-12 items-center justify-center gap-8 border border-white/25 bg-black px-5 text-sm font-medium text-white shadow-sm transition hover:border-blue-600 hover:bg-blue-600" href="/opportunities">
+              <a className="inline-flex h-12 items-center justify-center gap-8 border border-white/25 bg-black px-5 text-sm font-medium text-white shadow-sm transition hover:border-blue-600 hover:bg-blue-600" href="/opportunities">
                 Explore opportunities <ArrowDown className="size-4 text-blue-600" aria-hidden="true" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -163,7 +162,7 @@ export default function Home() {
             <div>
               <SectionLabel>For frontier AI teams</SectionLabel>
               <h2 className="mt-7 max-w-3xl text-balance text-4xl font-semibold leading-[1.02] tracking-[-0.05em] sm:text-5xl md:text-6xl">
-                Human expertise is the missing layer between capable models and useful systems.
+                Human expertise is the missing layer.
               </h2>
             </div>
             <div className="space-y-4 text-[15px] leading-7 text-zinc-600 dark:text-zinc-400">
@@ -222,7 +221,7 @@ export default function Home() {
 
           <div className="mt-14 grid border-t border-zinc-200 dark:border-zinc-800 md:grid-cols-2 md:gap-x-8">
             {useCases.map((useCase, index) => (
-              <Link
+              <a
                 className="group flex min-h-24 items-center justify-between gap-4 border-b border-zinc-200 px-3 py-6 transition-colors hover:bg-blue-50/70 focus-visible:bg-blue-50/70 dark:border-zinc-800 dark:hover:bg-blue-950/20 dark:focus-visible:bg-blue-950/20 sm:px-4 sm:py-7"
                 href="/opportunities"
                 aria-label={`Explore ${useCase} projects with GradNorm`}
@@ -237,7 +236,7 @@ export default function Home() {
                   </span>
                 </span>
                 <ArrowUpRight className="size-5 shrink-0 text-zinc-400 transition group-hover:translate-x-0.5 group-hover:text-blue-600 dark:text-zinc-600 dark:group-hover:text-blue-400" aria-hidden="true" />
-              </Link>
+              </a>
             ))}
           </div>
         </div>
@@ -249,7 +248,7 @@ export default function Home() {
           <div>
             <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-zinc-400">Why it matters</p>
             <h2 className="mt-7 max-w-3xl text-balance text-5xl font-semibold leading-[.98] tracking-[-0.055em] md:text-7xl">
-              The next performance gain will not come from more generic data.
+              The next leap requires more than generic data.
             </h2>
             <p className="mt-8 max-w-2xl text-lg leading-8 text-zinc-400">
               It will come from people who understand the edge cases, languages,

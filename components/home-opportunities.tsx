@@ -1,6 +1,5 @@
 import { opportunities } from "@/lib/opportunities";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import Link from "next/link";
 
 export function HomeOpportunities() {
   return (
@@ -18,7 +17,7 @@ export function HomeOpportunities() {
 
         <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {opportunities.slice(0, 6).map((opportunity) => (
-            <Link
+            <a
               className="group relative flex min-h-64 flex-col border border-zinc-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-blue-500 hover:shadow-[0_18px_60px_rgba(37,99,235,.12)] dark:border-zinc-800 dark:bg-zinc-950 dark:hover:border-blue-500"
               href={`/opportunities/${opportunity.slug}`}
               key={opportunity.slug}
@@ -42,14 +41,14 @@ export function HomeOpportunities() {
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </span>
               </div>
-            </Link>
+            </a>
           ))}
         </div>
 
         <div className="mt-10 flex justify-center">
-          <Link className="inline-flex h-12 items-center justify-center gap-8 bg-blue-600 px-5 text-sm font-medium text-white transition hover:bg-blue-700" href="/opportunities">
+          <a className="inline-flex h-12 items-center justify-center gap-8 bg-blue-600 px-5 text-sm font-medium text-white transition hover:bg-blue-700" href="/opportunities">
             View all opportunities <ArrowUpRight className="size-4" aria-hidden="true" />
-          </Link>
+          </a>
         </div>
       </div>
     </section>

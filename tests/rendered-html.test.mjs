@@ -32,6 +32,8 @@ test("renders the GradNorm home page with light mode as the default", async () =
   assert.match(html, /Human expertise for AI that has to work in the real world\./);
   assert.match(html, /Build with GradNorm/);
   assert.match(html, /Explore opportunities/);
+  assert.match(html, /Human expertise is the missing layer\./);
+  assert.match(html, /The next leap requires more than generic data\./);
   assert.match(html, /localStorage\.getItem\("gradnorm-theme"\)==="dark"/);
   assert.doesNotMatch(html, /<html[^>]*class=["'][^"']*dark/i);
   assert.doesNotMatch(html, /codex-preview|Building your site/i);

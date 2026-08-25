@@ -3,7 +3,6 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { getOpportunity, opportunities } from "@/lib/opportunities";
 import { ArrowLeft, ArrowUpRight, Check, Clock3, MapPin } from "lucide-react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
 type OpportunityPageProps = {
@@ -48,12 +47,12 @@ export default async function OpportunityDetailPage({ params }: OpportunityPageP
     <main className="min-h-screen bg-white text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50">
       <header className="border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 lg:px-8">
-          <Link href="/" aria-label="GradNorm home"><BrandWordmark /></Link>
+          <a href="/" aria-label="GradNorm home"><BrandWordmark /></a>
           <div className="flex items-center gap-3">
             <ThemeToggle />
-            <Link className="flex items-center gap-2 text-sm text-zinc-500 transition hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400" href="/opportunities">
+            <a className="flex items-center gap-2 text-sm text-zinc-500 transition hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400" href="/opportunities">
               <ArrowLeft className="size-4" aria-hidden="true" /> All opportunities
-            </Link>
+            </a>
           </div>
         </div>
       </header>

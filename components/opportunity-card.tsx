@@ -1,10 +1,9 @@
 import type { Opportunity } from "@/lib/opportunities";
 import { ArrowUpRight, MapPin } from "lucide-react";
-import Link from "next/link";
 
 export function OpportunityCard({ opportunity }: { opportunity: Opportunity }) {
   return (
-    <Link
+    <a
       className="group relative flex min-h-72 flex-col border border-zinc-200 bg-white p-6 shadow-[0_16px_50px_rgba(24,24,27,.06)] transition duration-300 hover:-translate-y-1 hover:border-blue-500 hover:shadow-[0_22px_70px_rgba(37,99,235,.13)] focus-visible:border-blue-500 dark:border-zinc-800 dark:bg-zinc-900/88 dark:shadow-none dark:hover:border-blue-500 sm:p-7"
       href={`/opportunities/${opportunity.slug}`}
       aria-label={`View ${opportunity.title} opportunity`}
@@ -41,6 +40,6 @@ export function OpportunityCard({ opportunity }: { opportunity: Opportunity }) {
           <ArrowUpRight className="size-4" aria-hidden="true" />
         </span>
       </div>
-    </Link>
+    </a>
   );
 }
