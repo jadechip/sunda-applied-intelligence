@@ -29,6 +29,8 @@ test("renders the GradNorm home page with light mode as the default", async () =
 
   const html = await response.text();
   assert.match(html, /<title>GradNorm — Expert data for real-world AI<\/title>/i);
+  assert.match(html, /<link rel="canonical" href="https:\/\/gradnorm\.dev"\/>/i);
+  assert.match(html, /<meta property="og:image" content="https:\/\/gradnorm\.dev\/og\.png"/i);
   assert.match(html, /Human expertise for AI that has to work in the real world\./);
   assert.match(html, /Build with GradNorm/);
   assert.match(html, /Explore opportunities/);

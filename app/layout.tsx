@@ -13,7 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gradnorm.jadechip.workers.dev"),
+  metadataBase: new URL("https://gradnorm.dev"),
+  alternates: {
+    canonical: "/",
+  },
   title: "GradNorm — Expert data for real-world AI",
   description:
     "GradNorm connects frontier AI teams with vetted experts to create high-quality training data, evaluations, and real-world environments.",

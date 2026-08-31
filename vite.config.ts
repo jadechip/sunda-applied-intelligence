@@ -9,6 +9,11 @@ const localBindingConfig = {
   main: "./worker/index.ts",
   compatibility_date: "2026-08-25",
   compatibility_flags: ["nodejs_compat"],
+  workers_dev: true,
+  routes: [
+    { pattern: "gradnorm.dev/*", zone_name: "gradnorm.dev" },
+    { pattern: "www.gradnorm.dev/*", zone_name: "gradnorm.dev" },
+  ],
 };
 
 export default defineConfig(async () => {
